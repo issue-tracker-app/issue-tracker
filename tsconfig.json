@@ -1,0 +1,34 @@
+{
+  "compilerOptions": {
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "noEmit": true,
+    "incremental": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
+  },
+  "include": [
+    "next-env.d.ts",
+    ".next/types/**/*.ts",
+    "**/*.ts",
+    "**/*.tsx"
+, "src/app/issues/_components/IssuesTsrc/app/issues/_components/IssueActions.jsxeActions.jsx", "src/app/issues/loading.jsx", "src/app/api/issue.api.js", "src/app/issues/[id]/page.jsx", "src/app/issues/[id]/loading.jsx", "src/app/issues/[id]/IssueDetails.jsx", "src/app/issues/[id]/EditIssueButton.jsx", "src/app/components/index.js", "src/app/components/Skeleton.jsx", "src/app/issues/new/page.jsx", "src/app/issues/new/loading.jsx", "src/app/issues/_components/IssueForm.jsx", "src/app/components/InputFieldError.jsx", "src/app/components/Spinner.jsx", "src/app/components/IssueStatusBadge.jsx", "src/app/validation/createIssueSchema.js", "src/app/issues/[id]/edit/page.jsx"  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
