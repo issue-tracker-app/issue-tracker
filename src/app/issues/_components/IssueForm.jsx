@@ -16,12 +16,11 @@ const IssueForm = ({ issue }) => {
   const [error, setError] = useState(false);
   const [isFormSubmitting, setIsFormSubmitting] = useState(false);
   const router = useRouter();
+  
   const {
-    
     register,
     control,
     handleSubmit,
-
     formState: { errors, isSubmitting },
   } = useForm({
     resolver: zodResolver(createIssueSchema),

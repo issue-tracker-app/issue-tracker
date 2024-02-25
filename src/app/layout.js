@@ -7,6 +7,14 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Provider } from "./Provider";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "@mantine/core/styles.css";
+import { createTheme, MantineProvider } from "@mantine/core";
+import { getInitialState } from "./context/reducer";
+import { StateProvider } from "./context/StateProvider";
+
+const theme = createTheme({
+  /** Put your mantine theme override here */
+});
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,13 +29,17 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${inter.variable} m-2 md:mx-16 lg:mx-32 `}>
-        <Theme appearance="light" accentColor="iris">
-          <Navbar />
-          <main className="mx-auto">
-            <ToastContainer />
-            <Provider>{children}</Provider>
-          </main>
-        </Theme>
+        <StateProvider>
+          <Theme appearance="light" accentColor="iris">
+            <MantineProvider theme={theme}>
+              <Navbar />
+              <main className="mx-auto">
+                <ToastContainer />
+                <Provider>{children}</Provider>
+              </main>
+            </MantineProvider>
+          </Theme>
+        </StateProvider>
       </body>
     </html>
   );
