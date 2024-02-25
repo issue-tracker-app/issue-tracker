@@ -58,7 +58,7 @@ const Navbar = () => {
           closeDelay={200}
         >
           <Menu.Target>
-            <div className="flex items-center gap-1 px-2 hover:bg-violet-100 rounded-md transition-colors">
+            <div className="flex items-center px-2 hover:bg-violet-100 rounded-md transition-colors">
               <Avatar
                 variant="transparent"
                 radius="xl"
@@ -67,7 +67,7 @@ const Navbar = () => {
               >
                 <FaUser />
               </Avatar>
-              {user?.accessToken ? "Hello" : ""}
+              {user?.accessToken && <span>Hello</span>}
             </div>
           </Menu.Target>
 
