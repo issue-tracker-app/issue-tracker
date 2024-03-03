@@ -1,17 +1,18 @@
 "use client";
 
-import { Avatar, Button, HoverCard, Menu, NavLink, Text } from "@mantine/core";
-import classNames from "classnames";
+import { Avatar, Menu, NavLink } from "@mantine/core";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 import { AiFillBug } from "react-icons/ai";
 import { FaUser } from "react-icons/fa";
 import { useStateValue } from "../context/StateProvider";
 
 const Navbar = () => {
   const [{ user }, dispatch] = useStateValue();
+  const [isLoggedIn, setIsLoggedIn] = useState(user?true:false)
   const currentPath = usePathname();
-
+  const router = useRouter();
   const links = [
     {
       label: "Dashboard",
@@ -23,6 +24,7 @@ const Navbar = () => {
     },
   ];
 
+  useEffect(()=>{},[isLoggedIn])
   return (
     <nav className="flex space-x-6 border-b mb-2 px-5 h-14 items-center justify-between">
       <Link href="/">
@@ -67,13 +69,26 @@ const Navbar = () => {
               >
                 <FaUser />
               </Avatar>
-              {user?.accessToken && <span>Hello</span>}
+              {/* {user?.accessToken && <span>Hello</span>} */}
+              {/* {user?.accessToken ? <span>Hello</span> : <></>} */}
             </div>
           </Menu.Target>
 
           <Menu.Dropdown>
             {user?.accessToken ? (
-              <Menu.Label>Hello Dear</Menu.Label>
+              <>
+                <Menu.Label>Hello Dear</Menu.Label>
+                <Menu.Item>
+                  <span
+                    onClick={() => {
+                      localStorage.removeItem("user");
+                      router.push("/auth/login")
+                    }}
+                  >
+                    Logout
+                  </span>
+                </Menu.Item>
+              </>
             ) : (
               <>
                 <Menu.Item>

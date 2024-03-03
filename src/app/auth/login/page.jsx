@@ -107,6 +107,7 @@ const LoginPage = () => {
             />
           </TextField.Root> */}
           <Input
+            variant="filled"
             size="md"
             radius="md"
             defaultValue="example@email.com"
@@ -141,6 +142,7 @@ const LoginPage = () => {
             />
           </TextField.Root> */}
           <PasswordInput
+            variant="filled"
             size="md"
             radius="md"
             placeholder="********"
@@ -180,7 +182,6 @@ const LoginPage = () => {
             Login
           </Button> */}
           <Button
-            fullWidth
             className="text-base cursor-pointer"
             variant="filled"
             color="violet"
@@ -192,9 +193,9 @@ const LoginPage = () => {
             disabled={isFormSubmitting}
             onClick={onSubmit}
           >
-            Login
+            Login here
           </Button>
-          <p className="mt-2">
+          <p className="mt-4">
             Not registered yet ?{" "}
             <Anchor href="/auth/register">Signup Here</Anchor>
           </p>
